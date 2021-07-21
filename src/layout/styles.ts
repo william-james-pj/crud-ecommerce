@@ -4,6 +4,7 @@ import { respondToDown } from "../config/respondTo";
 
 export const Container = styled.div`
   max-width: 1120px;
+  height: 100vh;
   margin: 0 auto;
   position: relative;
 
@@ -11,13 +12,13 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100%;
   padding: 1.5rem 1rem 2rem;
   overflow-y: auto;
   overflow-x: hidden;
 
   ${respondToDown.sm`
-    padding: 1.5rem 1rem 3.25rem;
+    padding: 4rem 1rem 2rem;
   `}
 `;
