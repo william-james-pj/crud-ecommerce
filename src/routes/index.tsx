@@ -4,14 +4,14 @@ import { MyRoute } from "./MyRoute";
 
 import { Home } from "../pages/Home";
 import { Products } from "../pages/Products";
-import { Customers } from "../pages/Customers";
+import { Clients } from "../pages/Clients";
 
 export function Routes() {
   return (
     <Switch>
       <MyRoute exact path="/" component={Home} />
       <MyRoute exact path="/products" component={Products} />
-      <MyRoute exact path="/customers" component={Customers} />
+      <MyRoute exact path="/clients" component={Clients} />
     </Switch>
   );
 }

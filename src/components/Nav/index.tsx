@@ -24,8 +24,8 @@ export function Nav() {
           <FontAwesomeIcon icon={faTags} size="lg" />
         </S.NavIcons>
       </S.NavLink>
-      <S.NavLink to="/customers">
-        <S.NavIcons active={location.pathname === "/customers" ? true : false}>
+      <S.NavLink to="/clients">
+        <S.NavIcons active={location.pathname === "/clients" ? true : false}>
           <FontAwesomeIcon icon={faUserFriends} size="lg" />
         </S.NavIcons>
       </S.NavLink>

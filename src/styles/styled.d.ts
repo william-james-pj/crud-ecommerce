@@ -9,13 +9,12 @@ declare module "styled-components" {
 
       background: string;
 
-      interactive: string;
       disabled: string;
-
       text: string;
 
       white: string;
       red: string;
+      green: string;
     };
   }
 }
