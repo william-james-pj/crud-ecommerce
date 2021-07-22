@@ -12,7 +12,7 @@ import { clientsType } from "../../utils/interfaces";
 import * as S from "./styles";
 
 interface TableProductsProps {
-  delet: (id: string) => void;
+  delet: (id: number) => void;
   data: clientsType[];
 }
 

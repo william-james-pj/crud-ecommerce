@@ -6,7 +6,7 @@ import { clientsType } from "../utils/interfaces";
 type ClientsContextType = {
   clients: clientsType[];
   addClients: (client: clientsType) => void;
-  deleteClients: (id: string) => void;
+  deleteClients: (id: number) => void;
 };
 
 type ClientsProviderProps = {
@@ -19,12 +19,22 @@ export function ClientsProvider(props: ClientsProviderProps) {
   const [clients, setClients] = usePersistedState<clientsType[]>("clients", []);
 
   const addClients = (client: clientsType) => {
-    client.id = `${clients.length + 1}`;
+    let idMissing = [...clients]
+      .map((item, index) => {
+        if (item.id === index + 1) return clients.length + 1;
+        return index + 1;
+      })
+      .filter((a) => a !== clients.length + 1);
 
-    setClients([...clients, client]);
+    if (idMissing.length) client.id = idMissing[0];
+    else client.id = clients.length + 1;
+
+    const arraySort = [...clients, client].sort((a, b) => a.id - b.id);
+
+    setClients(arraySort);
   };
 
-  const deleteClients = (id: string) => {
+  const deleteClients = (id: number) => {
     setClients(clients.filter((client) => client.id !== id));
   };
 

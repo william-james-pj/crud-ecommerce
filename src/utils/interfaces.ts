@@ -1,12 +1,12 @@
 export interface productsType {
-  id: string;
+  id: number;
   name: string;
   price: number;
   qtd: number;
 }
 
 export interface clientsType {
-  id: string;
+  id: number;
   name: string;
   cpf: string;
 }

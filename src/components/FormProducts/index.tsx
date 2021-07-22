@@ -16,7 +16,7 @@ export function FormProducts({ add }: FormProductsProps) {
     if (name.trim() === "" || price.trim() === "" || qtd.trim() === "")
       return alert("Fill all fields");
 
-    add({ id: "", name, price: Number(price), qtd: Number(qtd) });
+    add({ id: 0, name, price: Number(price), qtd: Number(qtd) });
 
     setName("");
     setPrice("");

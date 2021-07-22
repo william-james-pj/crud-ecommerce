@@ -15,7 +15,7 @@ export function FormClient({ add }: FormClientProps) {
     if (name.trim() === "" || cpf.trim() === "")
       return alert("Fill all fields");
 
-    add({ id: "", name, cpf });
+    add({ id: 0, name, cpf });
 
     setName("");
     setCpf("");
