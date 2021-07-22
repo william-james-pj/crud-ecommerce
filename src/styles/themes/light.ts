@@ -10,8 +10,9 @@ const light = {
     text: "rgba(41, 41, 46, 1)",
 
     white: "#FFF",
-    red: "rgba(181, 7, 23, 1)",
+    red: "rgba(217, 30, 24, 1)",
     green: "rgba(0, 177, 106, 1)",
+    yellow: "rgba(245, 215, 110, 1)",
   },
 };
 
