@@ -1,17 +1,35 @@
+import { useState } from "react";
 import * as S from "./styles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faEdit } from "@fortawesome/free-solid-svg-icons";
 
-export function IconContainer() {
+import { AlertDelete } from "../AlertDelete";
+
+interface IconContainerProps {
+  delet: () => void;
+}
+
+export function IconContainer({ delet }: IconContainerProps) {
+  const [openModalDelete, setOpenModalDelete] = useState(false);
+
+  const handleModalDelete = () => {
+    setOpenModalDelete(!openModalDelete);
+  };
+
   return (
     <S.Container>
       <S.Icon delete={false}>
         <FontAwesomeIcon icon={faEdit} size="lg" />
       </S.Icon>
-      <S.Icon delete={true}>
+      <S.Icon delete={true} onClick={handleModalDelete}>
         <FontAwesomeIcon icon={faTrashAlt} size="lg" />
       </S.Icon>
+      <AlertDelete
+        open={openModalDelete}
+        handleClose={handleModalDelete}
+        delet={delet}
+      />
     </S.Container>
   );
 }

@@ -12,10 +12,11 @@ import { productsType } from "../../utils/interfaces";
 import * as S from "./styles";
 
 interface TableProductsProps {
+  delet: (id: string) => void;
   data: productsType[];
 }
 
-export function TableProducts({ data }: TableProductsProps) {
+export function TableProducts({ data, delet }: TableProductsProps) {
   return (
     <S.Container>
       <S.TableContainerStyled>
@@ -41,7 +42,7 @@ export function TableProducts({ data }: TableProductsProps) {
                   {item.qtd}
                 </TableCell>
                 <TableCell align="center" size="small">
-                  <IconContainer />
+                  <IconContainer delet={() => delet(item.id)} />
                 </TableCell>
               </TableRow>
             ))}

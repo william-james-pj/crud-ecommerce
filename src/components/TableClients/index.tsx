@@ -12,10 +12,11 @@ import { clientsType } from "../../utils/interfaces";
 import * as S from "./styles";
 
 interface TableProductsProps {
+  delet: (id: string) => void;
   data: clientsType[];
 }
 
-export function TableClients({ data }: TableProductsProps) {
+export function TableClients({ data, delet }: TableProductsProps) {
   return (
     <S.Container>
       <S.TableContainerStyled>
@@ -37,7 +38,7 @@ export function TableClients({ data }: TableProductsProps) {
                 <TableCell align="left">{item.name}</TableCell>
                 <TableCell align="left">{item.cpf}</TableCell>
                 <TableCell align="center" size="small">
-                  <IconContainer />
+                  <IconContainer delet={() => delet(item.id)} />
                 </TableCell>
               </TableRow>
             ))}

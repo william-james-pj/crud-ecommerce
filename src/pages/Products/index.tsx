@@ -7,7 +7,7 @@ import { TableProducts } from "../../components/TableProducts";
 import { useProducts } from "../../hooks/useProducts";
 
 export function Products() {
-  const { products, addProducts } = useProducts();
+  const { products, addProducts, deleteProducts } = useProducts();
 
   return (
     <S.Container>
@@ -17,7 +17,7 @@ export function Products() {
           <FormProducts add={addProducts} />
         </Box>
         <Box textHeader="Product list">
-          <TableProducts data={products} />
+          <TableProducts data={products} delet={deleteProducts} />
         </Box>
       </S.RowContainer>
     </S.Container>
