@@ -1,9 +1,25 @@
 import { useState } from "react";
+import { clientsType } from "../../utils/interfaces";
+
 import * as S from "./styles";
 
-export function FormClient() {
+interface FormClientProps {
+  add: (client: clientsType) => void;
+}
+
+export function FormClient({ add }: FormClientProps) {
   const [name, setName] = useState("");
   const [cpf, setCpf] = useState("");
+
+  const submit = () => {
+    if (name.trim() === "" || cpf.trim() === "")
+      return alert("Fill all fields");
+
+    add({ id: "", name, cpf });
+
+    setName("");
+    setCpf("");
+  };
 
   return (
     <S.Container>
@@ -25,7 +41,7 @@ export function FormClient() {
           />
         </S.InputContainer>
 
-        <S.ButtonAdd>Add</S.ButtonAdd>
+        <S.ButtonAdd onClick={submit}>Add</S.ButtonAdd>
       </S.Form>
     </S.Container>
   );

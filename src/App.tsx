@@ -1,5 +1,8 @@
 import GlobalStyle from "./styles/global";
 
+import { ProductsProvider } from "./contexts/ProductsContexts";
+import { ClientsProvider } from "./contexts/ClientsContexts";
+
 import { ThemeProvider } from "styled-components";
 import light from "./styles/themes/light";
 
@@ -12,9 +15,13 @@ function App() {
     <>
       <ThemeProvider theme={light}>
         <GlobalStyle />
-        <Router history={history}>
-          <Layout />
-        </Router>
+        <ProductsProvider>
+          <ClientsProvider>
+            <Router history={history}>
+              <Layout />
+            </Router>
+          </ClientsProvider>
+        </ProductsProvider>
       </ThemeProvider>
     </>
   );

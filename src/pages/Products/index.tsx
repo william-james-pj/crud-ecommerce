@@ -4,36 +4,22 @@ import { Title } from "../../components/Title";
 import { Box } from "../../components/Box";
 import { FormProducts } from "../../components/FormProducts";
 import { TableProducts } from "../../components/TableProducts";
-
-import { productsType } from "../../utils/interfaces";
+import { useProducts } from "../../hooks/useProducts";
 
 export function Products() {
+  const { products, addProducts } = useProducts();
+
   return (
     <S.Container>
       <Title text="Products" />
       <S.RowContainer>
         <Box textHeader="Add a new product">
-          <FormProducts />
+          <FormProducts add={addProducts} />
         </Box>
         <Box textHeader="Product list">
-          <TableProducts data={data} />
+          <TableProducts data={products} />
         </Box>
       </S.RowContainer>
     </S.Container>
   );
 }
-
-const data: productsType[] = [
-  {
-    id: "1",
-    name: "Teste",
-    price: 25.99,
-    qtd: 5,
-  },
-  {
-    id: "2",
-    name: "Teste2",
-    price: 35.99,
-    qtd: 1,
-  },
-];

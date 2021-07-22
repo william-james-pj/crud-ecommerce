@@ -1,10 +1,27 @@
 import { useState } from "react";
+import { productsType } from "../../utils/interfaces";
+
 import * as S from "./styles";
 
-export function FormProducts() {
+interface FormProductsProps {
+  add: (product: productsType) => void;
+}
+
+export function FormProducts({ add }: FormProductsProps) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [qtd, setQtd] = useState("");
+
+  const submit = () => {
+    if (name.trim() === "" || price.trim() === "" || qtd.trim() === "")
+      return alert("Fill all fields");
+
+    add({ id: "", name, price: Number(price), qtd: Number(qtd) });
+
+    setName("");
+    setPrice("");
+    setQtd("");
+  };
 
   return (
     <S.Container>
@@ -35,7 +52,7 @@ export function FormProducts() {
           />
         </S.InputContainer>
 
-        <S.ButtonAdd>Add</S.ButtonAdd>
+        <S.ButtonAdd onClick={submit}>Add</S.ButtonAdd>
       </S.Form>
     </S.Container>
   );
