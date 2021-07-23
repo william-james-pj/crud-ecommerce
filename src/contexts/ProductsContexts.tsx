@@ -7,6 +7,7 @@ type ProductsContextType = {
   products: productsType[];
   addProducts: (product: productsType) => void;
   deleteProducts: (id: number) => void;
+  updateProducts: (id: number, updatedProduct: productsType) => void;
 };
 
 type ProductsProviderProps = {
@@ -41,8 +42,16 @@ export function ProductsProvider(props: ProductsProviderProps) {
     setProducts(products.filter((product) => product.id !== id));
   };
 
+  const updateProducts = (id: number, updatedProduct: productsType) => {
+    setProducts(
+      products.map((product) => (product.id === id ? updatedProduct : product))
+    );
+  };
+
   return (
-    <ProductsContext.Provider value={{ products, addProducts, deleteProducts }}>
+    <ProductsContext.Provider
+      value={{ products, addProducts, deleteProducts, updateProducts }}
+    >
       {props.children}
     </ProductsContext.Provider>
   );

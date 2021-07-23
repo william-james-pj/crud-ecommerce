@@ -7,6 +7,7 @@ type ClientsContextType = {
   clients: clientsType[];
   addClients: (client: clientsType) => void;
   deleteClients: (id: number) => void;
+  updateClients: (id: number, updatedClient: clientsType) => void;
 };
 
 type ClientsProviderProps = {
@@ -38,8 +39,16 @@ export function ClientsProvider(props: ClientsProviderProps) {
     setClients(clients.filter((client) => client.id !== id));
   };
 
+  const updateClients = (id: number, updatedClient: clientsType) => {
+    setClients(
+      clients.map((client) => (client.id === id ? updatedClient : client))
+    );
+  };
+
   return (
-    <ClientsContext.Provider value={{ clients, addClients, deleteClients }}>
+    <ClientsContext.Provider
+      value={{ clients, addClients, deleteClients, updateClients }}
+    >
       {props.children}
     </ClientsContext.Provider>
   );

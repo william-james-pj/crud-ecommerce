@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   Table,
   TableBody,
@@ -8,15 +10,28 @@ import {
 
 import { IconContainer } from "../IconContainer";
 import { clientsType } from "../../utils/interfaces";
+import { AlertUpdateClients } from "../AlertUpdateClients";
 
 import * as S from "./styles";
 
 interface TableProductsProps {
   delet: (id: number) => void;
+  update: (id: number, updatedClient: clientsType) => void;
   data: clientsType[];
 }
 
-export function TableClients({ data, delet }: TableProductsProps) {
+export function TableClients({ data, delet, update }: TableProductsProps) {
+  const [openModalUpdate, setOpenModalUpdate] = useState(false);
+  const [itemSelect, setItemSelect] = useState<clientsType>({
+    id: 0,
+    name: "",
+    cpf: "",
+  });
+
+  const handleModalUpdate = () => {
+    setOpenModalUpdate(!openModalUpdate);
+  };
+
   return (
     <S.Container>
       <S.TableContainerStyled>
@@ -38,13 +53,25 @@ export function TableClients({ data, delet }: TableProductsProps) {
                 <TableCell align="left">{item.name}</TableCell>
                 <TableCell align="left">{item.cpf}</TableCell>
                 <TableCell align="center" size="small">
-                  <IconContainer delet={() => delet(item.id)} />
+                  <IconContainer
+                    delet={() => delet(item.id)}
+                    update={() => {
+                      setItemSelect(item);
+                      return handleModalUpdate();
+                    }}
+                  />
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </S.TableContainerStyled>
+      <AlertUpdateClients
+        open={openModalUpdate}
+        handleClose={handleModalUpdate}
+        update={update}
+        item={itemSelect}
+      />
     </S.Container>
   );
 }

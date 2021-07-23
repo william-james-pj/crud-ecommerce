@@ -5,9 +5,9 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
-  DialogContentText,
   Button,
   DialogActions,
+  TextField,
 } from "@material-ui/core";
 
 export const Container = styled.div``;
@@ -19,7 +19,7 @@ export const DialogStyle = styled(Dialog)`
 
 export const DialogTitleStyle = styled(DialogTitle)`
   && {
-    background-color: ${(props) => props.theme.colors.red};
+    background-color: ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.white};
   }
 `;
@@ -27,26 +27,19 @@ export const DialogTitleStyle = styled(DialogTitle)`
 export const DialogContentStyle = styled(DialogContent)`
   && {
     margin: 2rem 2rem 1rem;
-  }
-`;
-
-export const DialogContentTextStyle = styled(DialogContentText)`
-  && {
-    margin: 0;
-
-    & + & {
-      margin-top: 0.3rem;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 `;
 
 export const ButtonDeleteStyle = styled(Button)`
   && {
-    background-color: ${(props) => props.theme.colors.red};
+    background-color: ${(props) => props.theme.colors.yellow};
     color: ${(props) => props.theme.colors.white};
 
     :hover {
-      background-color: ${(props) => props.theme.colors.red};
+      background-color: ${(props) => props.theme.colors.yellow};
       color: ${(props) => props.theme.colors.white};
       opacity: 0.8;
     }
@@ -70,4 +63,14 @@ export const DialogActionsStyle = styled(DialogActions)`
     padding: 1rem;
     gap: 1rem;
   }
+`;
+
+export const InputName = styled(TextField)``;
+
+export const InputPrice = styled(TextField)`
+  width: 140px;
+`;
+
+export const InputQtd = styled(TextField)`
+  width: 100px;
 `;

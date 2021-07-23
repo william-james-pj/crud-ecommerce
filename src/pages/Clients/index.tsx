@@ -7,7 +7,7 @@ import { TableClients } from "../../components/TableClients";
 import { useClients } from "../../hooks/useClients";
 
 export function Clients() {
-  const { clients, addClients, deleteClients } = useClients();
+  const { clients, addClients, deleteClients, updateClients } = useClients();
   return (
     <S.Container>
       <Title text="Clients" />
@@ -16,7 +16,11 @@ export function Clients() {
           <FormClient add={addClients} />
         </Box>
         <Box textHeader="Client list">
-          <TableClients data={clients} delet={deleteClients} />
+          <TableClients
+            data={clients}
+            delet={deleteClients}
+            update={updateClients}
+          />
         </Box>
       </S.RowContainer>
     </S.Container>

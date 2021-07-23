@@ -12,8 +12,6 @@ declare module "styled-components" {
       disabled: string;
       text: string;
 
-      modalDelete: string;
-
       white: string;
       red: string;
       green: string;

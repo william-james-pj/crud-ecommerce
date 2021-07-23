@@ -8,9 +8,10 @@ import { AlertDelete } from "../AlertDelete";
 
 interface IconContainerProps {
   delet: () => void;
+  update: () => void;
 }
 
-export function IconContainer({ delet }: IconContainerProps) {
+export function IconContainer({ delet, update }: IconContainerProps) {
   const [openModalDelete, setOpenModalDelete] = useState(false);
 
   const handleModalDelete = () => {
@@ -19,7 +20,7 @@ export function IconContainer({ delet }: IconContainerProps) {
 
   return (
     <S.Container>
-      <S.Icon delete={false}>
+      <S.Icon delete={false} onClick={update}>
         <FontAwesomeIcon icon={faEdit} size="lg" />
       </S.Icon>
       <S.Icon delete={true} onClick={handleModalDelete}>

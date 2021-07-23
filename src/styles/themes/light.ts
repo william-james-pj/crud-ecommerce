@@ -9,10 +9,8 @@ const light = {
     disabled: "rgba(200, 200, 200, 1)",
     text: "rgba(41, 41, 46, 1)",
 
-    modalDelete: "rgba(246, 71, 71, 1)",
-
     white: "#FFF",
-    red: "rgba(217, 30, 24, 1)",
+    red: "rgba(246, 71, 71, 1)",
     green: "rgba(0, 177, 106, 1)",
     yellow: "rgba(245, 215, 110, 1)",
   },
