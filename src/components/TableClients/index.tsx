@@ -26,6 +26,9 @@ export function TableClients({ data, delet, update }: TableProductsProps) {
     id: 0,
     name: "",
     cpf: "",
+    cep: "",
+    state: "",
+    city: "",
   });
 
   const handleModalUpdate = () => {
@@ -41,7 +44,11 @@ export function TableClients({ data, delet, update }: TableProductsProps) {
               <TableCell align="center">ID</TableCell>
               <TableCell>Name</TableCell>
               <TableCell align="left">CPF</TableCell>
-              <TableCell align="center"></TableCell>
+              <TableCell align="left">CEP</TableCell>
+              <TableCell align="left">Estado</TableCell>
+              <TableCell align="left">Cidade</TableCell>
+              <TableCell align="left"></TableCell>
+              <TableCell align="left"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -52,7 +59,16 @@ export function TableClients({ data, delet, update }: TableProductsProps) {
                 </TableCell>
                 <TableCell align="left">{item.name}</TableCell>
                 <TableCell align="left">{item.cpf}</TableCell>
-                <TableCell align="center" size="small">
+                <TableCell align="left" size="small">
+                  {item.cep}
+                </TableCell>
+                <TableCell align="left" size="small">
+                  {item.state}
+                </TableCell>
+                <TableCell align="left" size="small">
+                  {item.city}
+                </TableCell>
+                <TableCell align="left" size="small">
                   <IconContainer
                     delet={() => delet(item.id)}
                     update={() => {

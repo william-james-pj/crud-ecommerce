@@ -9,4 +9,7 @@ export interface clientsType {
   id: number;
   name: string;
   cpf: string;
+  cep: string;
+  state: string;
+  city: string;
 }

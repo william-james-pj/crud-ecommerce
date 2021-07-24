@@ -19,24 +19,42 @@ export function AlertUpdateClients({
 }: AlertDialogProps) {
   const [name, setName] = useState("");
   const [cpf, setCpf] = useState("");
+  const [cep, setCep] = useState("");
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
 
   const handleUpdate = () => {
-    if (name.trim() === "" || cpf.trim() === "")
+    if (
+      name.trim() === "" ||
+      cpf.trim() === "" ||
+      cep.trim() === "" ||
+      state.trim() === "" ||
+      city.trim() === ""
+    )
       return alert("Fill all fields");
 
     update(item.id, {
       id: item.id,
       name,
-      cpf: cpf,
+      cpf,
+      cep,
+      city,
+      state,
     });
 
     setName("");
     setCpf("");
+    setCep("");
+    setState("");
+    setCity("");
   };
 
   useEffect(() => {
     setName(item.name);
     setCpf(item.cpf);
+    setCep(item.cep);
+    setState(item.state);
+    setCity(item.city);
 
     return () => {};
   }, [item]);
@@ -64,9 +82,29 @@ export function AlertUpdateClients({
             id="PriceUpdate"
             label="CPF"
             variant="outlined"
-            type="number"
             value={cpf}
             onChange={(e) => setCpf(e.target.value)}
+          />
+          <S.InputPrice
+            id="cepUpdate"
+            label="cep"
+            variant="outlined"
+            value={cep}
+            onChange={(e) => setCep(e.target.value)}
+          />
+          <S.InputPrice
+            id="stateUpdate"
+            label="Estado"
+            variant="outlined"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+          />
+          <S.InputPrice
+            id="cityUpdate"
+            label="Cidade"
+            variant="outlined"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
           />
         </S.DialogContentStyle>
         <S.DialogActionsStyle>
