@@ -28,7 +28,7 @@
 <br />
 Esse CRUD gerencia o inventário de produtos e dados de clientes. Os dados são salvos no localstorage e podem ser editados e deletados.
 
-Link demo: https://bestclothes.netlify.app
+Link demo: https://crudecommerce.netlify.app
 
 ### Construído com
 
